@@ -35,11 +35,20 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class hubot {
+class hubot:params {
 
-  include hubot::params
-  include hubot::install
-  include hubot::config
-  include hubot::service
+  case $operatingsystem {
+    /^(Redhat|CentOS|Fedora|Debian|Ubuntu)$/: {
+      $hubot_package = 'hubot'
+    }
+    Solaris: {
+      $ssh_package = 'hubot'
+    }
+    default: {
+    }
+  }
+
+  $hubot_service_config = '/etc/hubot/hubot.cfg'
+  $hubot_service = 'hubot'
 
 }

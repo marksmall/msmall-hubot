@@ -35,11 +35,14 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class hubot {
+class hubot::service {
 
-  include hubot::params
-  include hubot::install
-  include hubot::config
-  include hubot::service
+  service { $hubot::params::hubot_service:
+    ensure     => 'running',
+    hasstatus  => true,
+    hasrestart => true,
+    enable     => true,
+    require    => Class[ 'hubot::config' ],
+  }
 
 }

@@ -35,11 +35,10 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class hubot {
+class hubot::install {
 
-  include hubot::params
-  include hubot::install
-  include hubot::config
-  include hubot::service
+  package { $hubot::params::hubot_package:
+    ensure => 'installed',
+  }
 
 }

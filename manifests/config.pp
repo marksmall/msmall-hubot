@@ -35,11 +35,16 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class hubot {
+class hubot::config {
 
-  include hubot::params
-  include hubot::install
-  include hubot::config
-  include hubot::service
+  file { $hubot::params::hubot_service_config:
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0640',
+    content => template('hubot/hubot.cfg.erb'),
+    require => Class[ 'hubot::install' ],
+    notify  => Class[ 'hubot::service' ],
+  }
 
 }

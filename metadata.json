@@ -1,0 +1,17 @@
+{
+  "name": "msmall-hubot",
+  "version": "0.1.0",
+  "author": "Mark Small",
+  "summary": "Install, configure and run as a service the hubot chatbot.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/marksmall/msmall-hubot.git",
+  "project_page": "https://github.com/marksmall/msmall-hubot",
+  "issues_url": "https://github.com/marksmall/msmall-hubot/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
